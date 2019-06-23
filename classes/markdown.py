@@ -5,7 +5,8 @@ class Markdown:
         'í': '%C3%AD',
         'ó': '%C3%B3',
         'ú': '%C3%BA',
-        'ñ': '%C3%B1'
+        'ñ': '%C3%B1',
+        '¿': '%C2%BF'
     }
 
     @staticmethod

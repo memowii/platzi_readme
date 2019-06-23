@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 from classes.platzi_url import PlatziUrl
 from classes.readme import Readme
@@ -18,3 +20,5 @@ def main():
 
 
 main()
+
+# todo: validar ?, ! | hacer que se corra sin el nombre
