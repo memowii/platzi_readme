@@ -14,9 +14,11 @@ class Readme:
 
     def __init__(self, course_url, name=None, path=None):
         self.course_url = course_url
-        self.platzi_class = PlatziClass(self.course_url)
         self.name = name
         self.path = path
+        self.file_name = self.get_file_name()
+        self.validate_file_name(self.file_name)
+        self.platzi_class = PlatziClass(self.course_url)
 
     def get_file_name(self):
         if self.name and not self.path:
@@ -38,9 +40,7 @@ class Readme:
             exit(1)
 
     def create_readme(self):
-        file_name = self.get_file_name()
-        self.validate_file_name(file_name)
-        file = open(file_name, Readme.FILE_MODE_W)
+        file = open(self.file_name, Readme.FILE_MODE_W)
 
         link_class_title = Markdown.link(self.platzi_class.get_title(),
                                          self.platzi_class.url)
