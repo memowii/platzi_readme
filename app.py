@@ -20,5 +20,3 @@ def main():
 
 
 main()
-
-# todo: validar ?, ! | hacer que se corra sin el nombre
