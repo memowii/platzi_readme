@@ -9,6 +9,10 @@ class Markdown:
         '¿': '%C2%BF'
     }
 
+    VALID_CHARS = [
+        '¿'
+    ]
+
     @staticmethod
     def h1(text, toc=False):
         return '# {}{}'.format(text, ' <!-- omit in toc -->' if toc else '')
@@ -51,9 +55,9 @@ class Markdown:
         word_array = []
         i = 0
         while i < len(text):
-            if text[i].isalpha():
+            if text[i].isalpha() or text[i] in Markdown.VALID_CHARS:
                 word = ''
-                while i < len(text) and text[i].isalpha():
+                while i < len(text) and (text[i].isalpha() or text[i] in Markdown.VALID_CHARS):
                     word += text[i]
                     i += 1
                 changed_word = Markdown.change_special_chars(word.lower())
