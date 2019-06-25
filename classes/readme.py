@@ -24,7 +24,7 @@ class Readme:
         if self.name and not self.path:
             return self.name
         elif not self.name and self.path:
-            file_name_with_path = self.path + Readme.FILE_NAME
+            file_name_with_path = self.path + '/' + Readme.FILE_NAME
             self.validate_file_name(file_name_with_path)
             return file_name_with_path
         elif self.name and self.path:
