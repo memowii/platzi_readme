@@ -43,5 +43,3 @@ class PlatziClass:
     def get_formated_duration(self):
         class_duration = self.get_duration()
         return str(datetime.timedelta(minutes=class_duration))
-
-PlatziClass('https://platzi.com/clases/bash-shell/')
