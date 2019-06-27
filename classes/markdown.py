@@ -39,7 +39,7 @@ class Markdown:
 
     @staticmethod
     def slug(text):
-        word_array = Markdown.get_word_array(text)
+        word_array = Markdown.get_words_array(text)
         return '#' + '-'.join(word_array)
 
     @staticmethod
@@ -51,13 +51,17 @@ class Markdown:
         return changed_text
 
     @staticmethod
-    def get_word_array(text):
+    def is_valid_char(char):
+        return char.isalpha() or char in Markdown.VALID_CHARS
+
+    @staticmethod
+    def get_words_array(text):
         word_array = []
         i = 0
         while i < len(text):
-            if text[i].isalpha() or text[i] in Markdown.VALID_CHARS:
+            if Markdown.is_valid_char(text[i]):
                 word = ''
-                while i < len(text) and (text[i].isalpha() or text[i] in Markdown.VALID_CHARS):
+                while i < len(text) and Markdown.is_valid_char(text[i]):
                     word += text[i]
                     i += 1
                 changed_word = Markdown.change_special_chars(word.lower())
